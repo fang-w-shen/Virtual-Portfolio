@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
 	include Response
 	include ExceptionHandler
-	before_action :authorize_request
+	# before_action :authorize_request
 	attr_reader :current_user
   def hello
   	render json: 'hey'
