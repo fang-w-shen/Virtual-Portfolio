@@ -1,17 +1,17 @@
 class ApplicationController < ActionController::Base
 	include Response
-	include ExceptionHandler
+	# include ExceptionHandler
 	# before_action :authorize_request
-	attr_reader :current_user
+	# attr_reader :current_user
   def hello
   	render json: 'hey'
   end
-	private
+	# private
 
-  # Check for valid request token and return user
-  def authorize_request
-  	@current_user = (AuthorizeApiRequest.new(request.headers).call)[:user]
-  end
+ #  # Check for valid request token and return user
+ #  def authorize_request
+ #  	@current_user = (AuthorizeApiRequest.new(request.headers).call)[:user]
+ #  end
 
 
 end
