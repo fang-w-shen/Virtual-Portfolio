@@ -12,6 +12,6 @@ class ApplicationController < ActionController::API
   end
 
   def hello
-  	render html: 'hey'
+  	render json: 'hey'
   end
 end
