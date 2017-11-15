@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root 'authentication#hello'
   scope module: :v2, constraints: ApiVersion.new('v2') do
     resources :todos, only: :index
   end
@@ -9,7 +10,6 @@ Rails.application.routes.draw do
     end
   end
 
-  root 'application#hello'
 
 post 'auth/login', to: 'authentication#authenticate'
 post 'signup', to: 'users#create'
