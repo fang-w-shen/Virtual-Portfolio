@@ -4,4 +4,4 @@
 *.js.meta
 ../../node_modules/
 ../build/
-room2.obj
+./room2.obj
