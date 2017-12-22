@@ -1,7 +1,7 @@
 <html>
 <head>
   <title>Virtual Portfolio</title>
-  <style>body { margin: 0; }</style>
+  <style>body { margin: 0; overflow:hidden }</style>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
   <link rel="stylesheet" type="text/css" href="./main.css">
@@ -9,7 +9,7 @@
   <!-- <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script> -->
 </head>
 <body style=" overflow:hidden;">
-
+<canvas id="c" style="width:100vw"></canvas>
 
 
   <!--   <a href="login.html"><button>Go To Login</button></a> -->
@@ -26,84 +26,28 @@
   justify-content: center;
   transition: all 2s;
   ">
-  <div id="preload-count" style="font: 'Lato', cursive;color: white;font-size: 100px;z-index: 9999;">0%</div>
+  <div class="sk-cube-grid">
+    <div class="sk-cube sk-cube1"></div>
+    <div class="sk-cube sk-cube2"></div>
+    <div class="sk-cube sk-cube3"></div>
+    <div class="sk-cube sk-cube4"></div>
+    <div class="sk-cube sk-cube5"></div>
+    <div class="sk-cube sk-cube6"></div>
+    <div class="sk-cube sk-cube7"></div>
+    <div class="sk-cube sk-cube8"></div>
+    <div class="sk-cube sk-cube9"></div>
+  </div>
 </div>
-<!-- / Preloader -->
-<!-- Initializing -->
-<div id="initializing">
 
-  Initializing...
-</div>
 
 <!-- / Initializing -->
-<script src="https://code.createjs.com/preloadjs-0.6.2.min.js"></script>
 
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 
 <script src="./client.bundle.js"></script>
 
 <script>
-  if (navigator.appName == 'Microsoft Internet Explorer' ||  !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv:11/)))
-  {
-    window.location = 'no-support.html';
-  }
 
-  /* Preload */
-  var queue = new createjs.LoadQueue();
-
-  var preloadElem = document.getElementById('preload');
-  var preloadProgressElem = document.getElementById('preload-count');
-
-  queue.on('complete', onComplete);
-  queue.on('progress', onProgress);
-  queue.loadManifest([
-  {
-    "id": 1,
-    "src": "client.bundle.js"
-  },
-  {
-    "id": 2,
-    "src": "static_assets/room.obj"
-  },
-  {
-    "id": 3,
-    "src": "static_assets/github.obj"
-  },
-  {
-    "id": 4,
-    "src": "static_assets/linked.obj"
-  },
-  {
-    "id": 5,
-    "src": "index.html"
-  },
-  {
-    "id": 5,
-    "src": "static_assets/favicon.ico"
-  }])
-
-
-  function onProgress(event) {
-    var progress = Math.round(event.loaded * 100);
-    preloadProgressElem.firstChild.nodeValue = progress + '%';
-  }
-
-  function onComplete(event) {
-    setTimeout(function(){
-
-      setTimeout(function(){
-        preloadProgressElem.remove()
-        $('#initializing').attr('style',"position: absolute; left: 50%; top: 47%; color: white; box-sizing: border-box; display: block; width: 150px; z-index: 9; text-align: center; margin-left: -75px; font: 'Lato', cursive; font-size:26px;font-weight:bolder; border: 3px solid white; padding: 10px 20px; background: linear-gradient(45deg, #30777f, rgba(24, 36, 209, .2)); border-radius: 1px; overflow:hidden;")
-        $('#initializing').html("Enter")
-        var initElem = document.getElementById('initializing');
-
-        initElem.addEventListener("click",()=>{
-          preloadElem.remove()
-
-          initElem.remove();
-        })
-      }, 1000);
-    }, 1000);
   // Initialize the React VR application
   ReactVR.init(
     'index.bundle.js?platform=vr&dev=false',
@@ -113,11 +57,47 @@
     },
 
     );
-}
+
 
 
 </script>
+<script type="text/javascript">
+  setTimeout(()=>{
+    $('#preload').addClass('loaded');
+    $('canvas').addClass('easein')
+  },3000)
+</script>
 
+
+<script type="text/javascript">
+
+  function fall() {
+    canvasMatrix.fillStyle = "rgba(0, 0, 0,0.09)",
+    canvasMatrix.fillRect(0, 0, c.width, c.height),
+    canvasMatrix.fillStyle = "rgb(18, 255, 28)",
+    canvasMatrix.font = customfont + "px Verdana";
+    for (var a = 0; a < letters.length; a++) {
+      var b = characters[Math.floor(Math.random() * characters.length)];
+      var x = "   "+words[Math.floor(Math.random() * words.length)];
+      if (letters[a] * customfont > c.height && Math.random() > .995 && (letters[a] = 0)) {
+      }
+      else {
+       canvasMatrix.fillText(b, a * customfont, letters[a] * customfont)
+       canvasMatrix.fillText(x, a * customfont, letters[a] * customfont)
+     }
+     letters[a]++
+   }
+ }
+ var c = document.getElementById("c"),
+ characters = "abcdefghijklmnopqrstuvxzwy0123456789%&#?¥µ§ØΩφΣπ$Üñþ√ϖϑβξ¶Æ".split(""),
+ canvasMatrix = c.getContext("2d"),
+ words = ['Hello World','<html>','Sass {Css}','Bio-Med','Engineering','Programming','Javascript',"σ = F x n / A  ", 'Grunt','Angular','Ruby','Rails','Ionic','Polymer','Δv = Δt(a)','Design','Research','Development'];
+ c.height = window.innerHeight;
+ c.width = window.innerWidth;
+ for (var customfont = 13, columns = c.width / customfont, letters = [],     x = 0; x < columns; x++) {letters[x] = 1;}
+  setInterval(fall, 100)
+</script>
+</script>
 </body>
 </html>
 
