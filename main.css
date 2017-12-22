@@ -133,6 +133,7 @@
 }
 
 .modal_box:before {
+
   display: block;
   content: "";
   width: 20px;
@@ -143,6 +144,7 @@
   border-top: 3px solid white;
   border-left: 3px solid white;
   border-radius: 2px;
+
 }
 .modal_box:after {
   display: block;
@@ -266,3 +268,4 @@ canvas {
   }
 }
 /* END LOADER*/
+
