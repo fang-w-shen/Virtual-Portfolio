@@ -5,3 +5,5 @@
 ../../node_modules/
 ../build/
 ./room2.obj
+index.bundle.js.meta
+index.bundle.js
