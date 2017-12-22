@@ -2,4 +2,6 @@
 *~
 *.log
 *.js.meta
-
+../../node_modules/
+../build/
+./room2.obj
