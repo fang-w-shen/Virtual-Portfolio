@@ -7,4 +7,6 @@
 ./room2.obj
 index.bundle.js.meta
 index.bundle.js
+client.bundle.js
+client.bundle.js.meta
 
