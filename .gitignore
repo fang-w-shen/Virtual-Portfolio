@@ -2,11 +2,6 @@
 *~
 *.log
 *.js.meta
-../../node_modules/
-../build/
-./room2.obj
-index.bundle.js.meta
-index.bundle.js
-client.bundle.js
-client.bundle.js.meta
+./index.bundle.js.meta
+./client.bundle.js.meta
 
