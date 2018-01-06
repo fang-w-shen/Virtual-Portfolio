@@ -1,18 +1,23 @@
-<html>
+<!DOCTYPE html>
 <head>
   <title>Virtual Portfolio</title>
   <style>body { margin: 0; overflow:hidden }</style>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="./static_assets/apple-touch-icon.png">
+  <link rel="manifest" href="./static_assets/manifest.json">
+  <link rel="mask-icon" href="./static_assets/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="author" content="Fang W. Shen">
+  <meta name="description" content="Professional Portfolio">
   <link rel="stylesheet" type="text/css" href="./main.css">
   <link rel="icon" type="image/png" sizes="32x32" href="./static_assets/favicon.ico">
-  <!-- <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script> -->
 </head>
 <body style=" overflow:hidden;">
 <canvas id="c" style="width:100vw;height:100vh;"></canvas>
 
 
-  <!--   <a href="login.html"><button>Go To Login</button></a> -->
 
   <!-- Preloader -->
   <div id="preload" style="
@@ -96,7 +101,6 @@
  c.width = window.innerWidth;
  for (var customfont = 13, columns = c.width / customfont, letters = [],     x = 0; x < columns; x++) {letters[x] = 1;}
   setInterval(fall, 100)
-</script>
 </script>
 </body>
 </html>
